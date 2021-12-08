@@ -1,0 +1,25 @@
+input {
+    display:block;
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+span {
+    display: flex;
+}
