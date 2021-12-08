@@ -1,6 +1,3 @@
-
-
-
 class Product {
     id
     constructor(name, amount, price){
@@ -71,6 +68,7 @@ class ProductContainer {
 
     }
 }
+
 
 let buttonAdd = document.getElementsByClassName("add")[0]
 let inputName = document.getElementsByClassName("name")[0]

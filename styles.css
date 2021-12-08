@@ -1,5 +1,9 @@
 input {
-    display:block;
+    display: block;
+}
+
+select {
+    display: block;
 }
 
 .productContainer {
@@ -18,6 +22,17 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
 }
 
 span {
