@@ -4,63 +4,66 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header>paragon</header>
-        <div class="actions">
-            <div class="addAction">
-                <label>Dodaj produkt</label><br />
-                <label>Nazwa: </label>
-                <input type="text" class="name" />
-                <label>Cena: </label>
-                <input type="text" class="price" />
-                <label>Ilość: </label>
-                <input type="text" class="amount" />
-                <button type="submit" class="add">Dodaj</button>
-            </div>
-            <div class="editAction">
-                <label>Edytuj produkt</label>
-                <select>
-                </select>
-                <label>Nazwa: </label>
-                <input type="text" class="editName" />
-                <label>Cena: </label>
-                <input type="text" class="editPrice" />
-                <label>Ilość: </label>
-                <input type="text" class="editAmount" />
-                <button type="submit" class="edit">Edytuj</button>
-            </div>
-            <div class="removeAction">
-                <label>Usuń produkt</label>
-                <select>
-
-                </select>
-                <button type="submit" class="edit">Usuń</button>
-            </div>
+    <header>paragon</header>
+    <div class="actions">
+        <div class="addAction">
+            <label>Dodaj produkt</label><br />
+            <label>Nazwa: </label>
+            <input type="text" class="name" />
+            <label>Cena: </label>
+            <input type="text" class="price" />
+            <label>Ilość: </label>
+            <input type="text" class="amount" />
+            <button type="submit" class="add">Dodaj</button>
         </div>
-
-        <div class="productContainer">
-            <div class="labels">
-                <span>Nazwa</span>
-                <span>Cena</span>
-                <span>Ilość</span>
-                <span>Suma</span>
-            </div>
+        <div class="editAction">
+            <label>Edytuj produkt</label>
+            <select id="editSelect">
+            </select>
+            <label>Nazwa: </label>
+            <input type="text" class="editName" />
+            <label>Cena: </label>
+            <input type="text" class="editPrice" />
+            <label>Ilość: </label>
+            <input type="text" class="editAmount" />
+            <button type="submit" class="edit">Edytuj</button>
         </div>
+        <div class="removeAction">
+            <label>Usuń produkt</label>
+            <select id="removeSelect">
+
+            </select>
+            <button type="submit" class="remove">Usuń</button>
+        </div>
+    </div>
+
+    <div class="productContainer">
+        <div class="labels">
+            <span>Nazwa</span>
+            <span>Cena</span>
+            <span>Ilość</span>
+            <span>Suma</span>
+        </div>
+    </div>
 
 
-        
-        <script src="main.js" async defer></script>
-    </body>
+
+    <script src="main.js" async defer></script>
+</body>
+
 </html>
