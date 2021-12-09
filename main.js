@@ -20,6 +20,7 @@ class Product {
 
         this.element.className = `product`
         this.element.id = `${this.id}`
+        this.beDraggable()
 
     }
 
@@ -49,18 +50,30 @@ class Product {
         return this.element
 
     }
-
+    
     editElement = () => {
-
-
-
         this.nameElement.innerHTML = this.name
         this.amountElement.innerHTML = this.amount
         this.priceElement.innerHTML = this.price
         this.sumElement.innerHTML = this.sum
-
-
     }
+    
+    beDraggable = () => {
+        this.element.setAttribute("draggable", "true")
+        this.element.classList.add("draggable")
+        this.element.addEventListener("dragstart", () => {
+            this.element.classList.add("dragging")
+        })
+
+        this.element.addEventListener("dragend", () => {
+            this.element.classList.remove("dragging")
+        })
+
+        this.element.addEventListener("dragover", (e) => {
+            e.preventDefault()
+        })
+    }
+
 }
 
 class ProductContainer {
@@ -85,10 +98,6 @@ class ProductContainer {
 
         select1.add(option1)
         select2.add(option2)
-
-
-        console.log(this.products)
-
 
     }
 
@@ -116,17 +125,32 @@ class ProductContainer {
         this.products[select.selectedIndex].price = price
         this.products[select.selectedIndex].amount = amount
         this.products[select.selectedIndex].sum = price * amount
-
-
         this.products[select.selectedIndex].editElement()
-
-
-
-
     }
 
-    SwapProducts = () => {
+    handleDragging = () => {
+        this.productsContainerElement.addEventListener("dragover", (e) => {
+            e.preventDefault()
+            let currentlyDragging = document.querySelector(".dragging")
+            let draggableProducts = [...document.querySelectorAll(".product:not(.dragging)")]
 
+            let elemObj = draggableProducts.reduce((closest, element) => {
+                let box = element.getBoundingClientRect()
+                let offset = e.clientY - (box.top + box.height / 2)
+                if(offset < 0 && offset > closest.offset){
+                    return { offset: offset, element: element}
+                }
+                else{
+                    return closest
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }) 
+            if(elemObj.element == null) { 
+                this.productsContainerElement.appendChild(currentlyDragging)
+            }
+            else{
+                this.productsContainerElement.insertBefore(currentlyDragging, elemObj.element)
+            }
+        })
     }
 }
 
@@ -145,6 +169,7 @@ let buttonRemove = document.getElementsByClassName("remove")[0]
 
 
 let productContainer = new ProductContainer()
+productContainer.handleDragging()
 
 buttonAdd.addEventListener("click", (e) => {
     e.preventDefault()
