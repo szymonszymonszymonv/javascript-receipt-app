@@ -1,9 +1,56 @@
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 50px 50px;
+    background-color: rgb(32, 46, 58);
+    color: rgb(194, 159, 83);
+}
+
 input {
     display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 2px solid rgb(58, 58, 58);
+    outline: none;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+button {
+    padding: 5px;
+    outline: none;
+    border: 2px solid rgb(58, 58, 58);
+    border-radius: 10px;
+    color: rgb(194, 159, 83);
+}
+
+button.add {
+    background-color: rgb(44, 88, 63)
+}
+
+button.remove {
+    background-color: rgb(85, 34, 51)
+}
+
+button.edit {
+    background-color: rgb(34, 59, 80)
 }
 
 select {
     display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 2px solid rgb(58, 58, 58);
+    outline: none;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+header {
+    display: flex;
+    justify-content: center;
 }
 
 .productContainer {
@@ -28,11 +75,29 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 
 .action {
     display: flex;
     flex-direction: column;
+}
+
+.removeAction {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectRemove {
+    margin-top: auto;
+}
+
+/* .remove {
+    margin-top: auto;
+} */
+
+.add {
+    margin-top: auto;
 }
 
 span {
