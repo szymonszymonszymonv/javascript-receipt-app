@@ -57,15 +57,6 @@ class Product {
         this.priceElement.innerHTML = this.price
         this.sumElement.innerHTML = this.sum
     }
-    removeElement = () => {
-
-        this.element.removeChild(this.nameElement)
-        this.element.removeChild(this.amountElement)
-        this.element.removeChild(this.priceElement)
-        this.element.removeChild(this.sumElement)
-
-
-    }
     
     
     beDraggable = () => {
@@ -99,8 +90,9 @@ class ProductContainer {
         else{
 
             if (isNaN(product.name) && product.price && product.amount) {
-    
+                
                 this.products.push(product)
+                localStorage.setItem("products", JSON.stringify(this.products))
                 this.productsContainerElement.appendChild(product.createElement())
                 let editSelect = document.getElementById("editSelect");
     
@@ -136,9 +128,11 @@ class ProductContainer {
 
         let product = this.products.find(x => x.name == removeSelect.options[removeSelect.selectedIndex].text)
 
-
-        product.removeElement()
+        this.productsContainerElement.removeChild(product.element)
+        
         this.products = this.products.filter(x => x.name != removeSelect.options[removeSelect.selectedIndex].text) // zmien chyba??
+        localStorage.setItem("products", JSON.stringify(this.products))
+
 
         console.log(this.products)
 
@@ -163,6 +157,8 @@ class ProductContainer {
                     this.products[select.selectedIndex].price = price
                     this.products[select.selectedIndex].amount = amount
                     this.products[select.selectedIndex].sum = price * amount
+                    localStorage.setItem("products", JSON.stringify(this.products))
+
     
                     this.products[select.selectedIndex].editElement() // akutalizacja wyświetlania
     
