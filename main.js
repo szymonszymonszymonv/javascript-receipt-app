@@ -72,18 +72,40 @@ class ProductContainer {
     AddProduct = (product) => {
         this.products.push(product)
         this.productsContainerElement.appendChild(product.createElement())
-        let select = document.getElementById("editSelect");
-        var option = document.createElement("option");
-        option.text = product.name
-        select.add(option)
+        let select1 = document.getElementById("editSelect");
+
+        let select2 = document.getElementById("removeSelect");
+
+        let option1 = document.createElement("option");
+
+
+        option1.text = product.name
+
+        let option2 = option1.cloneNode(true)
+
+        select1.add(option1)
+        select2.add(option2)
+
+
         console.log(this.products)
 
 
     }
 
-    RemoveProduct = (idx) => {
-        let select = document.getElementById("editSelect");
-        this.products(idx).splice(idx, 1)
+    RemoveProduct = () => {
+
+        // let select1 = document.getElementById("editSelect");
+
+        // let select2 = document.getElementById("removeSelect");
+
+        // select1.remove()
+        // select2.remove()
+
+        console.log(this.products)
+
+
+
+        // this.products(idx).splice(idx, 1)
     }
 
     EditProduct = (name, price, amount) => {
